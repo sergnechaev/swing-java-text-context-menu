@@ -44,9 +44,6 @@ import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 /**
  * 
  * @author Sergey Nechaev <serg.nechaev@gmail.com>
@@ -67,8 +64,6 @@ public final class QTextContextMenu extends MouseAdapter {
 	private static final String COPY_PNG = "copy.gif";
 
 	private static String ICONS_PACKAGE_PATH = "/net/oss/swing/java/text/context/menu/";
-
-	private static final Log log = LogFactory.getLog(QTextContextMenu.class);
 
 	private JTextComponent component;
 
@@ -297,7 +292,7 @@ public final class QTextContextMenu extends MouseAdapter {
 		try {
 			return new ImageIcon(ImageIO.read(QTextContextMenu.class.getResource(ICONS_PACKAGE_PATH + name)));
 		} catch (IOException e) {
-			log.error("Error: icon was not loaded: " + name, e);
+			System.err.println(e);
 		}
 
 		return null;
